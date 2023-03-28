@@ -72,7 +72,7 @@ resource "aws_lb_target_group" "target" {
   }
 }
 
-resource "aws_lb_target_group_attachment" "test" {
+resource "aws_lb_target_group_attachment" "webserver_private" {
   count            = length(aws_instance.webserver_private.*)
   target_group_arn = aws_lb_target_group.target.arn
   target_id        = element(aws_instance.webserver_private.*.id, count.index)
