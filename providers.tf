@@ -20,7 +20,7 @@ provider "aws" {
     tags = {
       Environment = "sandbox"
       Owner       = "willy2544"
-      Repo     = "tf-gitops"
+      Repo        = "tf-gitops"
     }
   }
 }

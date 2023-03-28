@@ -30,8 +30,8 @@ data "aws_subnets" "public_subnets" {
 }
 
 data "aws_subnet" "public_subnet" {
-  count = "${length(data.aws_subnets.public_subnets.ids)}"
-  id    = "${data.aws_subnets.public_subnets.ids[count.index]}"
+  count = length(data.aws_subnets.public_subnets.ids)
+  id    = data.aws_subnets.public_subnets.ids[count.index]
   depends_on = [
     data.aws_subnets.public_subnets
   ]
@@ -48,8 +48,8 @@ data "aws_subnets" "private_subnets" {
 }
 
 data "aws_subnet" "private_subnet" {
-  count = "${length(data.aws_subnets.private_subnets.ids)}"
-  id    = "${data.aws_subnets.private_subnets.ids[count.index]}"
+  count = length(data.aws_subnets.private_subnets.ids)
+  id    = data.aws_subnets.private_subnets.ids[count.index]
 }
 
 
